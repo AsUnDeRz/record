@@ -30,10 +30,8 @@ public class SwiftRecordPlugin: NSObject, FlutterPlugin, AVAudioRecorderDelegate
 
             let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
             path = documentsPath + "/" + String(Int(startTime.timeIntervalSince1970)) + ".m4a"
-            print("path: " + mPath)
+            print("path: " + path)
         }
-
-
 
         start(
           path: path!,
