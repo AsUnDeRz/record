@@ -16,6 +16,8 @@ public class SwiftRecordPlugin: NSObject, FlutterPlugin, AVAudioRecorderDelegate
   var audioRecorder: AVAudioRecorder?
   var path: String?
   var maxAmplitude:Float = -160.0;
+  var startTime: Date!
+
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     switch call.method {
@@ -27,7 +29,7 @@ public class SwiftRecordPlugin: NSObject, FlutterPlugin, AVAudioRecorderDelegate
 //             let directory = NSTemporaryDirectory()
 //             let fileName = UUID().uuidString + ".m4a"
 //             path = NSURL.fileURL(withPathComponents: [directory, fileName])?.absoluteString
-
+            startTime = Date()
             let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
             path = documentsPath + "/" + String(Int(startTime.timeIntervalSince1970)) + ".m4a"
 //             print("path: " + path)
