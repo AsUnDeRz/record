@@ -24,11 +24,16 @@ public class SwiftRecordPlugin: NSObject, FlutterPlugin, AVAudioRecorderDelegate
         path = args["path"] as? String
 
         if path == nil {
-          let directory = NSTemporaryDirectory()
-          let fileName = UUID().uuidString + ".m4a"
+//             let directory = NSTemporaryDirectory()
+//             let fileName = UUID().uuidString + ".m4a"
+//             path = NSURL.fileURL(withPathComponents: [directory, fileName])?.absoluteString
 
-            path = NSURL.fileURL(withPathComponents: [directory, fileName])?.absoluteString
+            let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+            path = documentsPath + "/" + String(Int(startTime.timeIntervalSince1970)) + ".m4a"
+            print("path: " + mPath)
         }
+
+
 
         start(
           path: path!,
