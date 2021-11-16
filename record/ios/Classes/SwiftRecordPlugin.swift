@@ -97,9 +97,9 @@ public class SwiftRecordPlugin: NSObject, FlutterPlugin, AVAudioRecorderDelegate
   fileprivate func start(path: String, encoder: Int, bitRate: Int, samplingRate: Float, result: @escaping FlutterResult) {
     stopRecording()
 
+    //      AVEncoderBitRateKey: bitRate,
     let settings = [
       AVFormatIDKey: getEncoder(encoder),
-      AVEncoderBitRateKey: bitRate,
       AVSampleRateKey: samplingRate,
       AVNumberOfChannelsKey: 2,
       AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
